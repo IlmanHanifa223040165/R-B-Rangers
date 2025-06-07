@@ -9,6 +9,8 @@ import dagger.hilt.components.SingletonComponent
 import id.ac.unpas.r_bmanajementugas.persistences.AppDatabase
 import id.ac.unpas.r_bmanajementugas.persistences.TugasDao
 import javax.inject.Singleton
+import id.ac.unpas.r_bmanajementugas.persistences.UserDao
+import id.ac.unpas.r_bmanajementugas.persistences.KategoriTugasDao
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -29,5 +31,15 @@ object DatabaseModule {
     @Provides
     fun provideTugasDao(appDatabase: AppDatabase): TugasDao {
         return appDatabase.tugasDao()
+    }
+
+    @Provides
+    fun provideUserDao(appDatabase: AppDatabase): UserDao {
+        return appDatabase.userDao()
+    }
+
+    @Provides
+    fun provideKategoriTugasDao(appDatabase: AppDatabase): KategoriTugasDao {
+        return appDatabase.kategoriTugasDao()
     }
 }
