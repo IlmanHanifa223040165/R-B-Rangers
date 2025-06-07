@@ -13,19 +13,25 @@ import id.ac.unpas.r_bmanajementugas.ui.theme.RBManajemenTugasTheme
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.background
+import androidx.compose.material3.ExposedDropdownMenuBox
+import androidx.compose.material3.ExposedDropdownMenuDefaults
 
-
-
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TambahTugasScreen(navController: NavController) {
     var judul by remember { mutableStateOf("") }
     var deskripsi by remember { mutableStateOf("") }
     var tanggal by remember { mutableStateOf("") }
+    var selectedKategori by remember { mutableStateOf<String?>(null) }
+    var expanded by remember { mutableStateOf(false) }
+
+    val kategoriList = listOf("Kuliah", "Organisasi", "Pribadi") // sementara hardcoded
     var errorMessage by remember { mutableStateOf<String?>(null) }
 
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .background(Color(0xFF90CAF9)) // biru terang
             .padding(24.dp),
         verticalArrangement = Arrangement.Center
     ) {
@@ -34,50 +40,106 @@ fun TambahTugasScreen(navController: NavController) {
             style = MaterialTheme.typography.headlineMedium,
             modifier = Modifier
                 .padding(bottom = 24.dp)
-                .align(Alignment.CenterHorizontally)
+                .align(Alignment.CenterHorizontally),
+            color = Color.Black
         )
 
-
-        // Input Judul
+        // Judul
         OutlinedTextField(
             value = judul,
             onValueChange = { judul = it },
-            label = { Text("Judul Tugas") },
-            modifier = Modifier.fillMaxWidth(),
-            singleLine = true
+            label = { Text("Judul Tugas", color = Color.Black) },
+            modifier = Modifier
+                .fillMaxWidth(),
+            singleLine = true,
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                focusedTextColor = Color.Black,
+                focusedBorderColor = Color.Black,
+                unfocusedBorderColor = Color.DarkGray
+            )
         )
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        // Input Deskripsi
+        // Deskripsi
         OutlinedTextField(
             value = deskripsi,
             onValueChange = { deskripsi = it },
-            label = { Text("Deskripsi") },
-            modifier = Modifier.fillMaxWidth(),
-            singleLine = false,
-            maxLines = 5
+            label = { Text("Deskripsi", color = Color.Black) },
+            modifier = Modifier
+                .fillMaxWidth(),
+            maxLines = 5,
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                focusedTextColor = Color.Black,
+                focusedBorderColor = Color.Black,
+                unfocusedBorderColor = Color.DarkGray
+            )
         )
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        // Input Tanggal
+        // Tanggal
         OutlinedTextField(
             value = tanggal,
             onValueChange = { tanggal = it },
-            label = { Text("Tanggal") },
-            modifier = Modifier.fillMaxWidth(),
-            singleLine = true
+            label = { Text("Tanggal", color = Color.Black) },
+            modifier = Modifier
+                .fillMaxWidth(),
+            singleLine = true,
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                focusedTextColor = Color.Black,
+                focusedBorderColor = Color.Black,
+                unfocusedBorderColor = Color.DarkGray
+            )
         )
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        // Dropdown Kategori
+        ExposedDropdownMenuBox(
+            expanded = expanded,
+            onExpandedChange = { expanded = !expanded }
+        ) {
+            OutlinedTextField(
+                value = selectedKategori ?: "",
+                onValueChange = {},
+                readOnly = true,
+                label = { Text("Kategori Tugas", color = Color.Black) },
+                trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
+                modifier = Modifier.fillMaxWidth(),
+                colors = TextFieldDefaults.outlinedTextFieldColors(
+                    focusedTextColor =  Color.Black,
+                    focusedBorderColor = Color.Black,
+                    unfocusedBorderColor = Color.DarkGray
+                )
+            )
+
+            ExposedDropdownMenu(
+                expanded = expanded,
+                onDismissRequest = { expanded = false }
+            ) {
+                kategoriList.forEach { kategori ->
+                    DropdownMenuItem(
+                        text = { Text (text = kategori,
+                            color = Color.Black)
+                               },
+                        onClick = {
+                            selectedKategori = kategori
+                            expanded = false
+                        }
+                    )
+                }
+            }
+        }
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Tombol Tambah Tugas
+        // Tombol Tambah
         Button(
             onClick = {
-                if (judul.isNotEmpty() && deskripsi.isNotEmpty() && tanggal.isNotEmpty()) {
-
-                    errorMessage = null  // Reset error message jika valid
+                if (judul.isNotEmpty() && deskripsi.isNotEmpty() && tanggal.isNotEmpty() && selectedKategori != null) {
+                    errorMessage = null
+                    // TODO: Simpan tugas di database
                 } else {
                     errorMessage = "Semua field harus diisi"
                 }
@@ -87,16 +149,9 @@ fun TambahTugasScreen(navController: NavController) {
             Text("Tambah Tugas")
         }
 
-        // Tampilkan pesan error jika form tidak valid
         errorMessage?.let {
             Spacer(modifier = Modifier.height(8.dp))
             Text(text = it, color = MaterialTheme.colorScheme.error)
         }
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun PreviewTambahTugasScreen() {
-    TambahTugasScreen(navController = rememberNavController())
 }
