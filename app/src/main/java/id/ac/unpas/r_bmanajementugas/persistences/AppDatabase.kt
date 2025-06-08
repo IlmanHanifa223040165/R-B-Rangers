@@ -8,7 +8,7 @@ import id.ac.unpas.r_bmanajementugas.model.KategoriTugas
 
 @Database(
     entities = [Tugas::class, User::class, KategoriTugas::class],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {

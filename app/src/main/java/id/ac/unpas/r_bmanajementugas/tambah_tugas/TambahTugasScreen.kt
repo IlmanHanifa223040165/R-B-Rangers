@@ -20,6 +20,12 @@ import id.ac.unpas.r_bmanajementugas.viewmodel.KategoriTugasViewModel
 import id.ac.unpas.r_bmanajementugas.model.KategoriTugas
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import id.ac.unpas.r_bmanajementugas.viewmodel.TugasViewModel
+import id.ac.unpas.r_bmanajementugas.model.Tugas
+import android.content.Intent
+import androidx.compose.ui.platform.LocalContext
+import id.ac.unpas.r_bmanajementugas.DashboardActivity
+
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -34,6 +40,10 @@ fun TambahTugasScreen(navController: NavController? = null) {
     val kategoriViewModel: KategoriTugasViewModel = hiltViewModel()
     val kategoriList by kategoriViewModel.kategoriList.collectAsState()
     val scrollState = rememberScrollState()
+    val tugasViewModel: TugasViewModel = hiltViewModel()
+    val context = LocalContext.current
+
+
 
     Column(
         modifier = Modifier
@@ -144,13 +154,21 @@ fun TambahTugasScreen(navController: NavController? = null) {
         Button(
             onClick = {
                 if (judul.isNotEmpty() && deskripsi.isNotEmpty() && tanggal.isNotEmpty() && selectedKategori != null) {
+                    val tugas = Tugas(
+                        judul = judul,
+                        deskripsi = deskripsi,
+                        tanggal = tanggal,
+                        kategori = selectedKategori!!
+                    )
+                    tugasViewModel.addTugas(tugas)
                     errorMessage = null
-                    // TODO: Tambahkan logika untuk menyimpan tugas ke database atau ViewModel
-                    // Misalnya: tugasViewModel.addTugas(judul, deskripsi, tanggal, selectedKategori!!)
-                    // Dan kemudian navigasi kembali: navController?.popBackStack()
+                    // Navigasi ke Dashboard
+
+                    val intent = Intent(context, DashboardActivity::class.java)
+                    context.startActivity(intent)
                 } else {
-                    errorMessage = "Semua field harus diisi"
-                }
+                errorMessage = "Semua field harus diisi"
+            }
             },
             modifier = Modifier.fillMaxWidth()
         ) {

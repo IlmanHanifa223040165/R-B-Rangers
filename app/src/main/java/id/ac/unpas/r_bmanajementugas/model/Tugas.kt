@@ -10,6 +10,7 @@ data class Tugas(
     val id: Int = 0,
     val judul: String,
     val deskripsi: String,
-    val tanggal: String
+    val tanggal: String,
+    val kategori: String
 )
 

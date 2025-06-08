@@ -6,6 +6,9 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface TugasDao {
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(tugas: Tugas)
+
     @Query("SELECT * FROM tugas ORDER BY id DESC")
     fun loadAll(): Flow<List<Tugas>>
 
