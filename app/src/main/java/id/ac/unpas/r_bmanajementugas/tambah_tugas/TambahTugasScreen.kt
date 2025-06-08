@@ -15,25 +15,34 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.background
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
+import androidx.hilt.navigation.compose.hiltViewModel
+import id.ac.unpas.r_bmanajementugas.viewmodel.KategoriTugasViewModel
+import id.ac.unpas.r_bmanajementugas.model.KategoriTugas
+import androidx.compose.foundation.rememberScrollState // Import for rememberScrollState
+import androidx.compose.foundation.verticalScroll // Import for verticalScroll
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TambahTugasScreen(navController: NavController) {
+fun TambahTugasScreen(navController: NavController? = null) {
     var judul by remember { mutableStateOf("") }
     var deskripsi by remember { mutableStateOf("") }
     var tanggal by remember { mutableStateOf("") }
     var selectedKategori by remember { mutableStateOf<String?>(null) }
     var expanded by remember { mutableStateOf(false) }
-
-    val kategoriList = listOf("Kuliah", "Organisasi", "Pribadi") // sementara hardcoded
     var errorMessage by remember { mutableStateOf<String?>(null) }
+    val kategoriViewModel: KategoriTugasViewModel = hiltViewModel()
+    val kategoriList by kategoriViewModel.kategoriList.collectAsState()
+    val scrollState = rememberScrollState()
+
 
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFF90CAF9)) // biru terang
-            .padding(24.dp),
-        verticalArrangement = Arrangement.Center
+            .background(Color(0xFF90CAF9))
+            .padding(24.dp)
+            .verticalScroll(scrollState),
+        verticalArrangement = Arrangement.Top
     ) {
         Text(
             text = "Tambah Tugas",
@@ -44,14 +53,15 @@ fun TambahTugasScreen(navController: NavController) {
             color = Color.Black
         )
 
-        // Judul
+
+
+
         OutlinedTextField(
             value = judul,
             onValueChange = { judul = it },
             label = { Text("Judul Tugas", color = Color.Black) },
-            modifier = Modifier
-                .fillMaxWidth(),
-            singleLine = true,
+            modifier = Modifier.fillMaxWidth(),
+            singleLine = true, // Added comma here
             colors = TextFieldDefaults.outlinedTextFieldColors(
                 focusedTextColor = Color.Black,
                 focusedBorderColor = Color.Black,
@@ -61,14 +71,12 @@ fun TambahTugasScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        // Deskripsi
         OutlinedTextField(
             value = deskripsi,
             onValueChange = { deskripsi = it },
             label = { Text("Deskripsi", color = Color.Black) },
-            modifier = Modifier
-                .fillMaxWidth(),
-            maxLines = 5,
+            modifier = Modifier.fillMaxWidth(),
+            maxLines = 5, // Added comma here
             colors = TextFieldDefaults.outlinedTextFieldColors(
                 focusedTextColor = Color.Black,
                 focusedBorderColor = Color.Black,
@@ -78,14 +86,12 @@ fun TambahTugasScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        // Tanggal
         OutlinedTextField(
             value = tanggal,
             onValueChange = { tanggal = it },
             label = { Text("Tanggal", color = Color.Black) },
-            modifier = Modifier
-                .fillMaxWidth(),
-            singleLine = true,
+            modifier = Modifier.fillMaxWidth(),
+            singleLine = true, // Added comma here
             colors = TextFieldDefaults.outlinedTextFieldColors(
                 focusedTextColor = Color.Black,
                 focusedBorderColor = Color.Black,
@@ -95,7 +101,7 @@ fun TambahTugasScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        // Dropdown Kategori
+        // Dropdown
         ExposedDropdownMenuBox(
             expanded = expanded,
             onExpandedChange = { expanded = !expanded }
@@ -104,14 +110,11 @@ fun TambahTugasScreen(navController: NavController) {
                 value = selectedKategori ?: "",
                 onValueChange = {},
                 readOnly = true,
-                label = { Text("Kategori Tugas", color = Color.Black) },
-                trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
-                modifier = Modifier.fillMaxWidth(),
-                colors = TextFieldDefaults.outlinedTextFieldColors(
-                    focusedTextColor =  Color.Black,
-                    focusedBorderColor = Color.Black,
-                    unfocusedBorderColor = Color.DarkGray
-                )
+                label = { Text("Pilih Kategori") },
+                trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded) },
+                modifier = Modifier.fillMaxWidth()
+                    .menuAnchor()
+                    .fillMaxWidth()
             )
 
             ExposedDropdownMenu(
@@ -120,11 +123,9 @@ fun TambahTugasScreen(navController: NavController) {
             ) {
                 kategoriList.forEach { kategori ->
                     DropdownMenuItem(
-                        text = { Text (text = kategori,
-                            color = Color.Black)
-                               },
+                        text = { Text(kategori.namaKategori) },
                         onClick = {
-                            selectedKategori = kategori
+                            selectedKategori = kategori.namaKategori
                             expanded = false
                         }
                     )
@@ -134,12 +135,10 @@ fun TambahTugasScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Tombol Tambah
         Button(
             onClick = {
                 if (judul.isNotEmpty() && deskripsi.isNotEmpty() && tanggal.isNotEmpty() && selectedKategori != null) {
                     errorMessage = null
-                    // TODO: Simpan tugas di database
                 } else {
                     errorMessage = "Semua field harus diisi"
                 }

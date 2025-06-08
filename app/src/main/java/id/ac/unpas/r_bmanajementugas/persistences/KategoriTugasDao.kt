@@ -10,6 +10,10 @@ interface KategoriTugasDao {
     fun loadAll(): Flow<List<KategoriTugas>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(kategori: KategoriTugas)
+
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(vararg kategori: KategoriTugas)
 
     @Delete

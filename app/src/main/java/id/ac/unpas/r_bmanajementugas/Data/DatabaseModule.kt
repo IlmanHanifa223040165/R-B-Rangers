@@ -11,6 +11,8 @@ import id.ac.unpas.r_bmanajementugas.persistences.TugasDao
 import javax.inject.Singleton
 import id.ac.unpas.r_bmanajementugas.persistences.UserDao
 import id.ac.unpas.r_bmanajementugas.persistences.KategoriTugasDao
+import dagger.hilt.android.qualifiers.ApplicationContext
+
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -19,7 +21,7 @@ object DatabaseModule {
     @Provides
     @Singleton
     fun provideAppDatabase(
-        appContext: Context
+        @ApplicationContext   appContext: Context
     ): AppDatabase {
         return Room.databaseBuilder(
             appContext,

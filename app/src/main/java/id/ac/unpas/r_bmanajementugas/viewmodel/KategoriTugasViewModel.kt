@@ -9,21 +9,28 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.collect
 
 @HiltViewModel
 class KategoriTugasViewModel @Inject constructor(
     private val repository: KategoriTugasRepository
 ) : ViewModel() {
-
     private val _kategoriList = MutableStateFlow<List<KategoriTugas>>(emptyList())
     val kategoriList: StateFlow<List<KategoriTugas>> get() = _kategoriList
 
     init {
-        loadAll()
-    }
-
-    private fun loadAll() {
         viewModelScope.launch {
+            val existing = repository.loadAll().first()
+            if (existing.isEmpty()) {
+                repository.insert(KategoriTugas(namaKategori = "Kuliah"))
+                repository.insert(KategoriTugas(namaKategori = "Organisasi"))
+                repository.insert(KategoriTugas(namaKategori = "Pribadi"))
+            } else{
+                android.util.Log.d("KategoriVM", "Data sudah ada: ${existing.size}")
+            }
+
+            // Setelah insert, langsung collect data ke UI
             repository.loadAll().collect {
                 _kategoriList.value = it
             }
@@ -41,4 +48,5 @@ class KategoriTugasViewModel @Inject constructor(
             repository.delete(kategori)
         }
     }
+
 }

@@ -17,4 +17,5 @@ class KategoriTugasRepository @Inject constructor(
     suspend fun delete(kategori: KategoriTugas) {
         kategoriTugasDao.delete(kategori)
     }
+
 }
