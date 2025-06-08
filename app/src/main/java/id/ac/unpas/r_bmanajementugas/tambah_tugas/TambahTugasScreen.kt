@@ -18,8 +18,8 @@ import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.hilt.navigation.compose.hiltViewModel
 import id.ac.unpas.r_bmanajementugas.viewmodel.KategoriTugasViewModel
 import id.ac.unpas.r_bmanajementugas.model.KategoriTugas
-import androidx.compose.foundation.rememberScrollState // Import for rememberScrollState
-import androidx.compose.foundation.verticalScroll // Import for verticalScroll
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -34,7 +34,6 @@ fun TambahTugasScreen(navController: NavController? = null) {
     val kategoriViewModel: KategoriTugasViewModel = hiltViewModel()
     val kategoriList by kategoriViewModel.kategoriList.collectAsState()
     val scrollState = rememberScrollState()
-
 
     Column(
         modifier = Modifier
@@ -53,19 +52,17 @@ fun TambahTugasScreen(navController: NavController? = null) {
             color = Color.Black
         )
 
-
-
-
         OutlinedTextField(
             value = judul,
             onValueChange = { judul = it },
             label = { Text("Judul Tugas", color = Color.Black) },
             modifier = Modifier.fillMaxWidth(),
-            singleLine = true, // Added comma here
+            singleLine = true,
             colors = TextFieldDefaults.outlinedTextFieldColors(
-                focusedTextColor = Color.Black,
-                focusedBorderColor = Color.Black,
-                unfocusedBorderColor = Color.DarkGray
+                focusedTextColor = Color.Black, // Teks saat fokus menjadi hitam
+                unfocusedTextColor = Color.Black, // Teks saat tidak fokus juga hitam
+                focusedBorderColor = Color.Black, // Border saat fokus menjadi hitam
+                unfocusedBorderColor = Color.DarkGray // Border saat tidak fokus menjadi abu-abu gelap
             )
         )
 
@@ -76,11 +73,12 @@ fun TambahTugasScreen(navController: NavController? = null) {
             onValueChange = { deskripsi = it },
             label = { Text("Deskripsi", color = Color.Black) },
             modifier = Modifier.fillMaxWidth(),
-            maxLines = 5, // Added comma here
+            maxLines = 5,
             colors = TextFieldDefaults.outlinedTextFieldColors(
-                focusedTextColor = Color.Black,
-                focusedBorderColor = Color.Black,
-                unfocusedBorderColor = Color.DarkGray
+                focusedTextColor = Color.Black, // Teks saat fokus menjadi hitam
+                unfocusedTextColor = Color.Black, // Teks saat tidak fokus juga hitam
+                focusedBorderColor = Color.Black, // Border saat fokus menjadi hitam
+                unfocusedBorderColor = Color.DarkGray // Border saat tidak fokus menjadi abu-abu gelap
             )
         )
 
@@ -91,11 +89,12 @@ fun TambahTugasScreen(navController: NavController? = null) {
             onValueChange = { tanggal = it },
             label = { Text("Tanggal", color = Color.Black) },
             modifier = Modifier.fillMaxWidth(),
-            singleLine = true, // Added comma here
+            singleLine = true,
             colors = TextFieldDefaults.outlinedTextFieldColors(
-                focusedTextColor = Color.Black,
-                focusedBorderColor = Color.Black,
-                unfocusedBorderColor = Color.DarkGray
+                focusedTextColor = Color.Black, // Teks saat fokus menjadi hitam
+                unfocusedTextColor = Color.Black, // Teks saat tidak fokus juga hitam
+                focusedBorderColor = Color.Black, // Border saat fokus menjadi hitam
+                unfocusedBorderColor = Color.DarkGray // Border saat tidak fokus menjadi abu-abu gelap
             )
         )
 
@@ -110,11 +109,18 @@ fun TambahTugasScreen(navController: NavController? = null) {
                 value = selectedKategori ?: "",
                 onValueChange = {},
                 readOnly = true,
-                label = { Text("Pilih Kategori") },
+                label = { Text("Pilih Kategori", color = Color.Black) }, // Label teks juga hitam
                 trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded) },
-                modifier = Modifier.fillMaxWidth()
-                    .menuAnchor()
+                modifier = Modifier
                     .fillMaxWidth()
+                    .menuAnchor(),
+                colors = TextFieldDefaults.outlinedTextFieldColors(
+                    focusedTextColor = Color.Black,   // Teks yang ditampilkan (selectedKategori) saat fokus
+                    unfocusedTextColor = Color.Black, // Teks yang ditampilkan (selectedKategori) saat tidak fokus
+                    focusedBorderColor = Color.Black, // Border saat fokus
+                    unfocusedBorderColor = Color.DarkGray, // Border saat tidak fokus (lebih tegas)
+                    // Anda juga bisa mengatur `containerColor` jika ingin mengubah warna latar belakangnya
+                )
             )
 
             ExposedDropdownMenu(
@@ -123,7 +129,7 @@ fun TambahTugasScreen(navController: NavController? = null) {
             ) {
                 kategoriList.forEach { kategori ->
                     DropdownMenuItem(
-                        text = { Text(kategori.namaKategori) },
+                        text = { Text(kategori.namaKategori, color = Color.White) }, // Pastikan teks item dropdown juga hitam
                         onClick = {
                             selectedKategori = kategori.namaKategori
                             expanded = false
@@ -139,6 +145,9 @@ fun TambahTugasScreen(navController: NavController? = null) {
             onClick = {
                 if (judul.isNotEmpty() && deskripsi.isNotEmpty() && tanggal.isNotEmpty() && selectedKategori != null) {
                     errorMessage = null
+                    // TODO: Tambahkan logika untuk menyimpan tugas ke database atau ViewModel
+                    // Misalnya: tugasViewModel.addTugas(judul, deskripsi, tanggal, selectedKategori!!)
+                    // Dan kemudian navigasi kembali: navController?.popBackStack()
                 } else {
                     errorMessage = "Semua field harus diisi"
                 }
