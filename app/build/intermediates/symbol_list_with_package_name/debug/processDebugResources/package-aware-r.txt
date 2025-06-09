@@ -3148,6 +3148,7 @@ id beginning
 id blocking
 id bottom
 id bounce
+id btnLogin
 id btnSimpan
 id buttonPanel
 id cancel_button
@@ -3223,6 +3224,8 @@ id escape
 id etDeadline
 id etDeskripsi
 id etJudul
+id etName
+id etPassword
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -3522,6 +3525,7 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tvRegister
 id tvTambahTugas
 id tv_header
 id tv_kategori_tugas
@@ -3661,6 +3665,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_dashboard
+layout activity_login
 layout activity_main
 layout custom_dialog
 layout design_bottom_navigation_item

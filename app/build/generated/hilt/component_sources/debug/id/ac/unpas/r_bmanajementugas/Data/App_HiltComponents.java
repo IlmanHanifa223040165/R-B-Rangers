@@ -43,8 +43,9 @@ import dagger.hilt.android.scopes.ViewScoped;
 import dagger.hilt.components.SingletonComponent;
 import dagger.hilt.internal.GeneratedComponent;
 import dagger.hilt.migration.DisableInstallInCheck;
-import id.ac.unpas.r_bmanajementugas.DashboardActivity_GeneratedInjector;
 import id.ac.unpas.r_bmanajementugas.MainActivity_GeneratedInjector;
+import id.ac.unpas.r_bmanajementugas.login.LoginViewModel_HiltModules;
+import id.ac.unpas.r_bmanajementugas.register.RegisterViewModel_HiltModules;
 import id.ac.unpas.r_bmanajementugas.viewmodel.KategoriTugasViewModel_HiltModules;
 import id.ac.unpas.r_bmanajementugas.viewmodel.TugasViewModel_HiltModules;
 import id.ac.unpas.r_bmanajementugas.viewmodel.UserViewModel_HiltModules;
@@ -159,6 +160,8 @@ public final class App_HiltComponents {
           ViewModelCBuilderModule.class,
           HiltWrapper_ActivityRetainedComponentManager_LifecycleModule.class,
           KategoriTugasViewModel_HiltModules.KeyModule.class,
+          LoginViewModel_HiltModules.KeyModule.class,
+          RegisterViewModel_HiltModules.KeyModule.class,
           TugasViewModel_HiltModules.KeyModule.class,
           UserViewModel_HiltModules.KeyModule.class
       }
@@ -188,7 +191,6 @@ public final class App_HiltComponents {
       FragmentComponentManager.FragmentComponentBuilderEntryPoint,
       ViewComponentManager.ViewComponentBuilderEntryPoint,
       GeneratedComponent,
-      DashboardActivity_GeneratedInjector,
       MainActivity_GeneratedInjector {
     @Subcomponent.Builder
     abstract interface Builder extends ActivityComponentBuilder {
@@ -199,6 +201,8 @@ public final class App_HiltComponents {
       modules = {
           HiltWrapper_HiltViewModelFactory_ViewModelModule.class,
           KategoriTugasViewModel_HiltModules.BindsModule.class,
+          LoginViewModel_HiltModules.BindsModule.class,
+          RegisterViewModel_HiltModules.BindsModule.class,
           TugasViewModel_HiltModules.BindsModule.class,
           UserViewModel_HiltModules.BindsModule.class
       }

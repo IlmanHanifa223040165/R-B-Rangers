@@ -26,15 +26,18 @@ import dagger.internal.DoubleCheck;
 import dagger.internal.MapBuilder;
 import dagger.internal.Preconditions;
 import dagger.internal.SetBuilder;
-import id.ac.unpas.r_bmanajementugas.DashboardActivity;
 import id.ac.unpas.r_bmanajementugas.MainActivity;
 import id.ac.unpas.r_bmanajementugas.Repository.KategoriTugasRepository;
 import id.ac.unpas.r_bmanajementugas.Repository.TugasRepository;
 import id.ac.unpas.r_bmanajementugas.Repository.UserRepository;
+import id.ac.unpas.r_bmanajementugas.login.LoginViewModel;
+import id.ac.unpas.r_bmanajementugas.login.LoginViewModel_HiltModules_KeyModule_ProvideFactory;
 import id.ac.unpas.r_bmanajementugas.persistences.AppDatabase;
 import id.ac.unpas.r_bmanajementugas.persistences.KategoriTugasDao;
 import id.ac.unpas.r_bmanajementugas.persistences.TugasDao;
 import id.ac.unpas.r_bmanajementugas.persistences.UserDao;
+import id.ac.unpas.r_bmanajementugas.register.RegisterViewModel;
+import id.ac.unpas.r_bmanajementugas.register.RegisterViewModel_HiltModules_KeyModule_ProvideFactory;
 import id.ac.unpas.r_bmanajementugas.viewmodel.KategoriTugasViewModel;
 import id.ac.unpas.r_bmanajementugas.viewmodel.KategoriTugasViewModel_HiltModules_KeyModule_ProvideFactory;
 import id.ac.unpas.r_bmanajementugas.viewmodel.TugasViewModel;
@@ -383,7 +386,7 @@ public final class DaggerApp_HiltComponents_SingletonC {
 
     @Override
     public Set<String> getViewModelKeys() {
-      return SetBuilder.<String>newSetBuilder(3).add(KategoriTugasViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(TugasViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(UserViewModel_HiltModules_KeyModule_ProvideFactory.provide()).build();
+      return SetBuilder.<String>newSetBuilder(5).add(KategoriTugasViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(LoginViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(RegisterViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(TugasViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(UserViewModel_HiltModules_KeyModule_ProvideFactory.provide()).build();
     }
 
     @Override
@@ -402,10 +405,6 @@ public final class DaggerApp_HiltComponents_SingletonC {
     }
 
     @Override
-    public void injectDashboardActivity(DashboardActivity dashboardActivity) {
-    }
-
-    @Override
     public void injectMainActivity(MainActivity mainActivity) {
     }
   }
@@ -418,6 +417,10 @@ public final class DaggerApp_HiltComponents_SingletonC {
     private final ViewModelCImpl viewModelCImpl = this;
 
     private Provider<KategoriTugasViewModel> kategoriTugasViewModelProvider;
+
+    private Provider<LoginViewModel> loginViewModelProvider;
+
+    private Provider<RegisterViewModel> registerViewModelProvider;
 
     private Provider<TugasViewModel> tugasViewModelProvider;
 
@@ -449,13 +452,15 @@ public final class DaggerApp_HiltComponents_SingletonC {
     private void initialize(final SavedStateHandle savedStateHandleParam,
         final ViewModelLifecycle viewModelLifecycleParam) {
       this.kategoriTugasViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 0);
-      this.tugasViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 1);
-      this.userViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 2);
+      this.loginViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 1);
+      this.registerViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 2);
+      this.tugasViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 3);
+      this.userViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 4);
     }
 
     @Override
     public Map<String, Provider<ViewModel>> getHiltViewModelMap() {
-      return MapBuilder.<String, Provider<ViewModel>>newMapBuilder(3).put("id.ac.unpas.r_bmanajementugas.viewmodel.KategoriTugasViewModel", ((Provider) kategoriTugasViewModelProvider)).put("id.ac.unpas.r_bmanajementugas.viewmodel.TugasViewModel", ((Provider) tugasViewModelProvider)).put("id.ac.unpas.r_bmanajementugas.viewmodel.UserViewModel", ((Provider) userViewModelProvider)).build();
+      return MapBuilder.<String, Provider<ViewModel>>newMapBuilder(5).put("id.ac.unpas.r_bmanajementugas.viewmodel.KategoriTugasViewModel", ((Provider) kategoriTugasViewModelProvider)).put("id.ac.unpas.r_bmanajementugas.login.LoginViewModel", ((Provider) loginViewModelProvider)).put("id.ac.unpas.r_bmanajementugas.register.RegisterViewModel", ((Provider) registerViewModelProvider)).put("id.ac.unpas.r_bmanajementugas.viewmodel.TugasViewModel", ((Provider) tugasViewModelProvider)).put("id.ac.unpas.r_bmanajementugas.viewmodel.UserViewModel", ((Provider) userViewModelProvider)).build();
     }
 
     private static final class SwitchingProvider<T> implements Provider<T> {
@@ -482,10 +487,16 @@ public final class DaggerApp_HiltComponents_SingletonC {
           case 0: // id.ac.unpas.r_bmanajementugas.viewmodel.KategoriTugasViewModel 
           return (T) new KategoriTugasViewModel(viewModelCImpl.kategoriTugasRepository());
 
-          case 1: // id.ac.unpas.r_bmanajementugas.viewmodel.TugasViewModel 
+          case 1: // id.ac.unpas.r_bmanajementugas.login.LoginViewModel 
+          return (T) new LoginViewModel();
+
+          case 2: // id.ac.unpas.r_bmanajementugas.register.RegisterViewModel 
+          return (T) new RegisterViewModel();
+
+          case 3: // id.ac.unpas.r_bmanajementugas.viewmodel.TugasViewModel 
           return (T) new TugasViewModel(viewModelCImpl.tugasRepository());
 
-          case 2: // id.ac.unpas.r_bmanajementugas.viewmodel.UserViewModel 
+          case 4: // id.ac.unpas.r_bmanajementugas.viewmodel.UserViewModel 
           return (T) new UserViewModel(viewModelCImpl.userRepository());
 
           default: throw new AssertionError(id);

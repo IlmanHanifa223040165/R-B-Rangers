@@ -8,65 +8,72 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import android.widget.Toast
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 
 @Composable
-fun RegisterScreen(modifier: Modifier = Modifier) {
+fun RegisterScreen(
+    navController: NavController,
+    viewModel: RegisterViewModel = hiltViewModel()
+) {
     val context = LocalContext.current
 
-    var nama by remember { mutableStateOf("") }
-    var email by remember { mutableStateOf("") }
-    var password by remember { mutableStateOf("") }
-    var errorMessage by remember { mutableStateOf<String?>(null) }
+    val nama by remember { derivedStateOf { viewModel.nama } }
+    val email by remember { derivedStateOf { viewModel.email } }
+    val password by remember { derivedStateOf { viewModel.password } }
+    val errorMessage = viewModel.errorMessage
+    val isRegistered = viewModel.isRegistered
+
+    if (isRegistered) {
+        // Arahkan ke login setelah register sukses
+        LaunchedEffect(Unit) {
+            Toast.makeText(context, "Registrasi berhasil", Toast.LENGTH_SHORT).show()
+            navController.navigate("login") {
+                popUpTo("register") { inclusive = true }
+            }
+        }
+    }
 
     Column(
-        modifier = modifier
+        modifier = Modifier
             .fillMaxSize()
             .padding(24.dp),
         verticalArrangement = Arrangement.Center
     ) {
-        Text(
-            text = "Daftar Akun",
-            style = MaterialTheme.typography.headlineMedium,
-            modifier = Modifier.padding(bottom = 24.dp)
-        )
+        Text("Daftar Akun", style = MaterialTheme.typography.headlineMedium)
+
+        Spacer(modifier = Modifier.height(16.dp))
 
         OutlinedTextField(
             value = nama,
-            onValueChange = { nama = it },
+            onValueChange = viewModel::onNamaChange,
             label = { Text("Nama") },
             modifier = Modifier.fillMaxWidth()
         )
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(8.dp))
 
         OutlinedTextField(
             value = email,
-            onValueChange = { email = it },
+            onValueChange = viewModel::onEmailChange,
             label = { Text("Email") },
             modifier = Modifier.fillMaxWidth()
         )
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(8.dp))
 
         OutlinedTextField(
             value = password,
-            onValueChange = { password = it },
+            onValueChange = viewModel::onPasswordChange,
             label = { Text("Password") },
             modifier = Modifier.fillMaxWidth(),
             singleLine = true
         )
 
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
         Button(
-            onClick = {
-                if (nama.isNotBlank() && email.isNotBlank() && password.isNotBlank()) {
-                    errorMessage = null
-                    Toast.makeText(context, "Register berhasil (simulasi)", Toast.LENGTH_SHORT).show()
-                } else {
-                    errorMessage = "Semua field harus diisi"
-                }
-            },
+            onClick = viewModel::register,
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Register")
@@ -74,7 +81,7 @@ fun RegisterScreen(modifier: Modifier = Modifier) {
 
         errorMessage?.let {
             Spacer(modifier = Modifier.height(8.dp))
-            Text(text = it, color = MaterialTheme.colorScheme.error)
+            Text(it, color = MaterialTheme.colorScheme.error)
         }
     }
 }

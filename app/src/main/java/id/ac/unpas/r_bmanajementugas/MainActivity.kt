@@ -7,6 +7,7 @@ import androidx.navigation.compose.rememberNavController
 import id.ac.unpas.r_bmanajementugas.tambah_tugas.TambahTugasScreen
 import id.ac.unpas.r_bmanajementugas.ui.theme.RBManajemenTugasTheme
 import dagger.hilt.android.AndroidEntryPoint
+import id.ac.unpas.r_bmanajementugas.navigation.AppNavigation
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -15,7 +16,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             RBManajemenTugasTheme {
                 val navController = rememberNavController()
-                TambahTugasScreen(navController = navController)
+                AppNavigation(navController = navController)
             }
         }
     }

@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/R-BManajemenTugas.iml" filepath="$PROJECT_DIR$/.idea/modules/R-BManajemenTugas.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/R-BManajemenTugas.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/R-BManajemenTugas.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/R-BManajemenTugas.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/R-BManajemenTugas.app.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/R-BManajemenTugas.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/R-BManajemenTugas.app.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/R-BManajemenTugas.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/R-BManajemenTugas.app.unitTest.iml" />
     </modules>
   </component>
 </project>

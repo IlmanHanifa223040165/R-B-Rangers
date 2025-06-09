@@ -24,7 +24,6 @@ import id.ac.unpas.r_bmanajementugas.viewmodel.TugasViewModel
 import id.ac.unpas.r_bmanajementugas.model.Tugas
 import android.content.Intent
 import androidx.compose.ui.platform.LocalContext
-import id.ac.unpas.r_bmanajementugas.DashboardActivity
 
 
 
@@ -164,8 +163,10 @@ fun TambahTugasScreen(navController: NavController? = null) {
                     errorMessage = null
                     // Navigasi ke Dashboard
 
-                    val intent = Intent(context, DashboardActivity::class.java)
-                    context.startActivity(intent)
+                    navController?.navigate("dashboard") {
+                        popUpTo("tambahTugas") { inclusive = true }
+                    }
+
                 } else {
                 errorMessage = "Semua field harus diisi"
             }
