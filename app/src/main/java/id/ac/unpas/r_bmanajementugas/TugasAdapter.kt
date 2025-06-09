@@ -8,7 +8,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView // <-- TAMBAHKAN INI
 import id.ac.unpas.r_bmanajementugas.model.Tugas
 
-class TugasAdapter(private var listTugas: List<Tugas>) : RecyclerView.Adapter<TugasAdapter.TugasViewHolder>() {
+class TugasAdapter(
+    private var listTugas: List<Tugas>,
+    private val onDeleteClick: (Tugas) -> Unit
+) : RecyclerView.Adapter<TugasAdapter.TugasViewHolder>() {
 
     class TugasViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val namaTugas: TextView = itemView.findViewById(R.id.tv_nama_tugas)
@@ -27,14 +30,15 @@ class TugasAdapter(private var listTugas: List<Tugas>) : RecyclerView.Adapter<Tu
         holder.namaTugas.text = "Judul: ${tugas.judul}"
         holder.kategoriTugas.text = "Kategori: ${tugas.kategori}"
         holder.statusTugas.text = "Tanggal: ${tugas.tanggal}"
-        // Tambahkan fungsi untuk tombol delete jika diperlukan
-        // holder.deleteButton.setOnClickListener { ... }
+
+        holder.deleteButton.setOnClickListener {
+            onDeleteClick(tugas)
+        }
     }
 
-    // Perbaikan pada fungsi setData
     fun setData(newList: List<Tugas>) {
-        listTugas = newList // Cukup langsung assign list baru
-        notifyDataSetChanged() // Memberi tahu RecyclerView bahwa data telah berubah
+        listTugas = newList
+        notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int {

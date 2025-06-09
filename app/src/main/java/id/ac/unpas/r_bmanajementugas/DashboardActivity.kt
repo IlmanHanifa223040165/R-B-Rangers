@@ -29,25 +29,25 @@ class DashboardActivity : AppCompatActivity() {
         rvTugas = findViewById(R.id.rv_tugas)
         rvTugas.layoutManager = LinearLayoutManager(this)
 
-        // Inisialisasi adapter hanya sekali dengan daftar kosong
-        adapter = TugasAdapter(emptyList())
-        rvTugas.adapter = adapter
-
         // Inisialisasi FloatingActionButton
         fabAdd = findViewById(R.id.fab_add)
         fabAdd.setOnClickListener {
-            // Ketika FAB diklik, navigasi kembali ke TambahTugasScreen
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-            finish() // Opsional: tutup DashboardActivity agar user kembali ke form yang baru
         }
 
-        // Observasi data tugas dari ViewModel
+        // Inisialisasi adapter dengan list kosong dan handler delete
+        adapter = TugasAdapter(emptyList()) { tugas ->
+            tugasViewModel.deleteTugas(tugas)
+        }
+        rvTugas.adapter = adapter
+
+        // Observasi data
         lifecycleScope.launch {
             tugasViewModel.tugasList.collectLatest { daftarTugas ->
-                // Panggil setData pada adapter yang sudah ada
                 adapter.setData(daftarTugas)
             }
         }
     }
 }
+
