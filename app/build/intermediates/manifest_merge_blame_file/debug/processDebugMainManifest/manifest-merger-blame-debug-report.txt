@@ -1,0 +1,182 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="id.ac.unpas.r_bmanajementugas"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="35" />
+10
+11    <permission
+11-->[androidx.core:core:1.16.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\22dd8e9ddfcbe4cad3eddce90234068d\transformed\core-1.16.0\AndroidManifest.xml:22:5-24:47
+12        android:name="id.ac.unpas.r_bmanajementugas.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+12-->[androidx.core:core:1.16.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\22dd8e9ddfcbe4cad3eddce90234068d\transformed\core-1.16.0\AndroidManifest.xml:23:9-81
+13        android:protectionLevel="signature" />
+13-->[androidx.core:core:1.16.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\22dd8e9ddfcbe4cad3eddce90234068d\transformed\core-1.16.0\AndroidManifest.xml:24:9-44
+14
+15    <uses-permission android:name="id.ac.unpas.r_bmanajementugas.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+15-->[androidx.core:core:1.16.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\22dd8e9ddfcbe4cad3eddce90234068d\transformed\core-1.16.0\AndroidManifest.xml:26:5-97
+15-->[androidx.core:core:1.16.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\22dd8e9ddfcbe4cad3eddce90234068d\transformed\core-1.16.0\AndroidManifest.xml:26:22-94
+16
+17    <application
+17-->D:\RBManajemenTugas\app\src\main\AndroidManifest.xml:4:5-35:19
+18        android:name="id.ac.unpas.r_bmanajementugas.Data.App"
+18-->D:\RBManajemenTugas\app\src\main\AndroidManifest.xml:6:9-33
+19        android:allowBackup="true"
+19-->D:\RBManajemenTugas\app\src\main\AndroidManifest.xml:5:9-35
+20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+20-->[androidx.core:core:1.16.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\22dd8e9ddfcbe4cad3eddce90234068d\transformed\core-1.16.0\AndroidManifest.xml:28:18-86
+21        android:dataExtractionRules="@xml/data_extraction_rules"
+21-->D:\RBManajemenTugas\app\src\main\AndroidManifest.xml:7:9-65
+22        android:debuggable="true"
+23        android:extractNativeLibs="false"
+24        android:fullBackupContent="@xml/backup_rules"
+24-->D:\RBManajemenTugas\app\src\main\AndroidManifest.xml:8:9-54
+25        android:icon="@mipmap/ic_launcher"
+25-->D:\RBManajemenTugas\app\src\main\AndroidManifest.xml:9:9-43
+26        android:label="@string/app_name"
+26-->D:\RBManajemenTugas\app\src\main\AndroidManifest.xml:10:9-41
+27        android:roundIcon="@mipmap/ic_launcher_round"
+27-->D:\RBManajemenTugas\app\src\main\AndroidManifest.xml:11:9-54
+28        android:supportsRtl="true"
+28-->D:\RBManajemenTugas\app\src\main\AndroidManifest.xml:12:9-35
+29        android:testOnly="true"
+30        android:theme="@style/Theme.RBManajemenTugas" >
+30-->D:\RBManajemenTugas\app\src\main\AndroidManifest.xml:13:9-54
+31        <activity
+31-->D:\RBManajemenTugas\app\src\main\AndroidManifest.xml:16:9-27:20
+32            android:name="id.ac.unpas.r_bmanajementugas.DashboardActivity"
+32-->D:\RBManajemenTugas\app\src\main\AndroidManifest.xml:17:13-46
+33            android:exported="true"
+33-->D:\RBManajemenTugas\app\src\main\AndroidManifest.xml:18:13-36
+34            android:label="Dashboard"
+34-->D:\RBManajemenTugas\app\src\main\AndroidManifest.xml:19:13-38
+35            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
+35-->D:\RBManajemenTugas\app\src\main\AndroidManifest.xml:20:13-71
+36            <intent-filter>
+36-->D:\RBManajemenTugas\app\src\main\AndroidManifest.xml:22:9-25:29
+37                <action android:name="android.intent.action.MAIN" />
+37-->D:\RBManajemenTugas\app\src\main\AndroidManifest.xml:23:17-69
+37-->D:\RBManajemenTugas\app\src\main\AndroidManifest.xml:23:25-66
+38
+39                <category android:name="android.intent.category.LAUNCHER" />
+39-->D:\RBManajemenTugas\app\src\main\AndroidManifest.xml:24:17-77
+39-->D:\RBManajemenTugas\app\src\main\AndroidManifest.xml:24:27-74
+40            </intent-filter>
+41        </activity>
+42        <activity
+42-->D:\RBManajemenTugas\app\src\main\AndroidManifest.xml:28:9-32:74
+43            android:name="id.ac.unpas.r_bmanajementugas.MainActivity"
+43-->D:\RBManajemenTugas\app\src\main\AndroidManifest.xml:29:13-41
+44            android:exported="true"
+44-->D:\RBManajemenTugas\app\src\main\AndroidManifest.xml:30:13-36
+45            android:label="Form Tugas"
+45-->D:\RBManajemenTugas\app\src\main\AndroidManifest.xml:31:13-39
+46            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+46-->D:\RBManajemenTugas\app\src\main\AndroidManifest.xml:32:13-71
+47
+48        <uses-library
+48-->[androidx.window:window:1.0.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\932eca4cb4e687809c5d8b690b229d42\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
+49            android:name="androidx.window.extensions"
+49-->[androidx.window:window:1.0.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\932eca4cb4e687809c5d8b690b229d42\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
+50            android:required="false" />
+50-->[androidx.window:window:1.0.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\932eca4cb4e687809c5d8b690b229d42\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
+51        <uses-library
+51-->[androidx.window:window:1.0.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\932eca4cb4e687809c5d8b690b229d42\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
+52            android:name="androidx.window.sidecar"
+52-->[androidx.window:window:1.0.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\932eca4cb4e687809c5d8b690b229d42\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
+53            android:required="false" />
+53-->[androidx.window:window:1.0.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\932eca4cb4e687809c5d8b690b229d42\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
+54
+55        <activity
+55-->[androidx.compose.ui:ui-tooling-android:1.7.8] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\0a5aedc2406d96a32efec5cc70b24f37\transformed\ui-tooling-release\AndroidManifest.xml:23:9-25:39
+56            android:name="androidx.compose.ui.tooling.PreviewActivity"
+56-->[androidx.compose.ui:ui-tooling-android:1.7.8] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\0a5aedc2406d96a32efec5cc70b24f37\transformed\ui-tooling-release\AndroidManifest.xml:24:13-71
+57            android:exported="true" />
+57-->[androidx.compose.ui:ui-tooling-android:1.7.8] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\0a5aedc2406d96a32efec5cc70b24f37\transformed\ui-tooling-release\AndroidManifest.xml:25:13-36
+58
+59        <provider
+59-->[androidx.emoji2:emoji2:1.3.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\030083cdc00b7733a4191d7e74e6ed69\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+60            android:name="androidx.startup.InitializationProvider"
+60-->[androidx.emoji2:emoji2:1.3.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\030083cdc00b7733a4191d7e74e6ed69\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+61            android:authorities="id.ac.unpas.r_bmanajementugas.androidx-startup"
+61-->[androidx.emoji2:emoji2:1.3.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\030083cdc00b7733a4191d7e74e6ed69\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+62            android:exported="false" >
+62-->[androidx.emoji2:emoji2:1.3.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\030083cdc00b7733a4191d7e74e6ed69\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+63            <meta-data
+63-->[androidx.emoji2:emoji2:1.3.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\030083cdc00b7733a4191d7e74e6ed69\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+64                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+64-->[androidx.emoji2:emoji2:1.3.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\030083cdc00b7733a4191d7e74e6ed69\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+65                android:value="androidx.startup" />
+65-->[androidx.emoji2:emoji2:1.3.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\030083cdc00b7733a4191d7e74e6ed69\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+66            <meta-data
+66-->[androidx.lifecycle:lifecycle-process:2.9.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\5cfc9a681b4f94234e7484fce32b5534\transformed\lifecycle-process-2.9.0\AndroidManifest.xml:29:13-31:52
+67                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+67-->[androidx.lifecycle:lifecycle-process:2.9.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\5cfc9a681b4f94234e7484fce32b5534\transformed\lifecycle-process-2.9.0\AndroidManifest.xml:30:17-78
+68                android:value="androidx.startup" />
+68-->[androidx.lifecycle:lifecycle-process:2.9.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\5cfc9a681b4f94234e7484fce32b5534\transformed\lifecycle-process-2.9.0\AndroidManifest.xml:31:17-49
+69            <meta-data
+69-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\ef4202da88f05e3403a800a4a3ddfcc4\transformed\profileinstaller-1.4.0\AndroidManifest.xml:29:13-31:52
+70                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+70-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\ef4202da88f05e3403a800a4a3ddfcc4\transformed\profileinstaller-1.4.0\AndroidManifest.xml:30:17-85
+71                android:value="androidx.startup" />
+71-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\ef4202da88f05e3403a800a4a3ddfcc4\transformed\profileinstaller-1.4.0\AndroidManifest.xml:31:17-49
+72        </provider>
+73
+74        <activity
+74-->[androidx.compose.ui:ui-test-manifest:1.7.8] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\b806569f383d0cc3b26c9195f194e166\transformed\ui-test-manifest-1.7.8\AndroidManifest.xml:23:9-25:39
+75            android:name="androidx.activity.ComponentActivity"
+75-->[androidx.compose.ui:ui-test-manifest:1.7.8] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\b806569f383d0cc3b26c9195f194e166\transformed\ui-test-manifest-1.7.8\AndroidManifest.xml:24:13-63
+76            android:exported="true" />
+76-->[androidx.compose.ui:ui-test-manifest:1.7.8] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\b806569f383d0cc3b26c9195f194e166\transformed\ui-test-manifest-1.7.8\AndroidManifest.xml:25:13-36
+77
+78        <service
+78-->[androidx.room:room-runtime:2.6.1] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\2c98cf479929fddd74c9d3e3713c272a\transformed\room-runtime-2.6.1\AndroidManifest.xml:24:9-28:63
+79            android:name="androidx.room.MultiInstanceInvalidationService"
+79-->[androidx.room:room-runtime:2.6.1] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\2c98cf479929fddd74c9d3e3713c272a\transformed\room-runtime-2.6.1\AndroidManifest.xml:25:13-74
+80            android:directBootAware="true"
+80-->[androidx.room:room-runtime:2.6.1] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\2c98cf479929fddd74c9d3e3713c272a\transformed\room-runtime-2.6.1\AndroidManifest.xml:26:13-43
+81            android:exported="false" />
+81-->[androidx.room:room-runtime:2.6.1] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\2c98cf479929fddd74c9d3e3713c272a\transformed\room-runtime-2.6.1\AndroidManifest.xml:27:13-37
+82
+83        <receiver
+83-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\ef4202da88f05e3403a800a4a3ddfcc4\transformed\profileinstaller-1.4.0\AndroidManifest.xml:34:9-52:20
+84            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+84-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\ef4202da88f05e3403a800a4a3ddfcc4\transformed\profileinstaller-1.4.0\AndroidManifest.xml:35:13-76
+85            android:directBootAware="false"
+85-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\ef4202da88f05e3403a800a4a3ddfcc4\transformed\profileinstaller-1.4.0\AndroidManifest.xml:36:13-44
+86            android:enabled="true"
+86-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\ef4202da88f05e3403a800a4a3ddfcc4\transformed\profileinstaller-1.4.0\AndroidManifest.xml:37:13-35
+87            android:exported="true"
+87-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\ef4202da88f05e3403a800a4a3ddfcc4\transformed\profileinstaller-1.4.0\AndroidManifest.xml:38:13-36
+88            android:permission="android.permission.DUMP" >
+88-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\ef4202da88f05e3403a800a4a3ddfcc4\transformed\profileinstaller-1.4.0\AndroidManifest.xml:39:13-57
+89            <intent-filter>
+89-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\ef4202da88f05e3403a800a4a3ddfcc4\transformed\profileinstaller-1.4.0\AndroidManifest.xml:40:13-42:29
+90                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+90-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\ef4202da88f05e3403a800a4a3ddfcc4\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:17-91
+90-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\ef4202da88f05e3403a800a4a3ddfcc4\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:25-88
+91            </intent-filter>
+92            <intent-filter>
+92-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\ef4202da88f05e3403a800a4a3ddfcc4\transformed\profileinstaller-1.4.0\AndroidManifest.xml:43:13-45:29
+93                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+93-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\ef4202da88f05e3403a800a4a3ddfcc4\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:17-85
+93-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\ef4202da88f05e3403a800a4a3ddfcc4\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:25-82
+94            </intent-filter>
+95            <intent-filter>
+95-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\ef4202da88f05e3403a800a4a3ddfcc4\transformed\profileinstaller-1.4.0\AndroidManifest.xml:46:13-48:29
+96                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+96-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\ef4202da88f05e3403a800a4a3ddfcc4\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:17-88
+96-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\ef4202da88f05e3403a800a4a3ddfcc4\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:25-85
+97            </intent-filter>
+98            <intent-filter>
+98-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\ef4202da88f05e3403a800a4a3ddfcc4\transformed\profileinstaller-1.4.0\AndroidManifest.xml:49:13-51:29
+99                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+99-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\ef4202da88f05e3403a800a4a3ddfcc4\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:17-95
+99-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\LENOVO\.gradle\caches\8.10.2\transforms\ef4202da88f05e3403a800a4a3ddfcc4\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:25-92
+100            </intent-filter>
+101        </receiver>
+102    </application>
+103
+104</manifest>
