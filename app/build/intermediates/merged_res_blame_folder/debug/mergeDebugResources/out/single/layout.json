@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "id.ac.unpas.r_bmanajementugas.app-mergeDebugResources-79:/layout/activity_main.xml",
+        "source": "id.ac.unpas.r_bmanajementugas.app-main-82:/layout/activity_main.xml"
+    },
+    {
+        "merged": "id.ac.unpas.r_bmanajementugas.app-mergeDebugResources-79:/layout/activity_dashboard.xml",
+        "source": "id.ac.unpas.r_bmanajementugas.app-main-82:/layout/activity_dashboard.xml"
+    },
+    {
+        "merged": "id.ac.unpas.r_bmanajementugas.app-mergeDebugResources-79:/layout/fragment_tambah_tugas.xml",
+        "source": "id.ac.unpas.r_bmanajementugas.app-main-82:/layout/fragment_tambah_tugas.xml"
+    },
+    {
+        "merged": "id.ac.unpas.r_bmanajementugas.app-mergeDebugResources-79:/layout/item_tugas.xml",
+        "source": "id.ac.unpas.r_bmanajementugas.app-main-82:/layout/item_tugas.xml"
+    }
+]

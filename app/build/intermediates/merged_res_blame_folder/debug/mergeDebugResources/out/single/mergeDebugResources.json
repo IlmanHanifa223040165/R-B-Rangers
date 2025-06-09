@@ -1,0 +1,94 @@
+[
+    {
+        "merged": "id.ac.unpas.r_bmanajementugas.app-debug-80:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "id.ac.unpas.r_bmanajementugas.app-main-82:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "id.ac.unpas.r_bmanajementugas.app-debug-80:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "id.ac.unpas.r_bmanajementugas.app-main-82:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "id.ac.unpas.r_bmanajementugas.app-debug-80:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "id.ac.unpas.r_bmanajementugas.app-main-82:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "id.ac.unpas.r_bmanajementugas.app-debug-80:/drawable_ic_delete.xml.flat",
+        "source": "id.ac.unpas.r_bmanajementugas.app-main-82:/drawable/ic_delete.xml"
+    },
+    {
+        "merged": "id.ac.unpas.r_bmanajementugas.app-debug-80:/layout_activity_main.xml.flat",
+        "source": "id.ac.unpas.r_bmanajementugas.app-main-82:/layout/activity_main.xml"
+    },
+    {
+        "merged": "id.ac.unpas.r_bmanajementugas.app-debug-80:/drawable_ic_launcher_background.xml.flat",
+        "source": "id.ac.unpas.r_bmanajementugas.app-main-82:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "id.ac.unpas.r_bmanajementugas.app-debug-80:/drawable_edittext_background.xml.flat",
+        "source": "id.ac.unpas.r_bmanajementugas.app-main-82:/drawable/edittext_background.xml"
+    },
+    {
+        "merged": "id.ac.unpas.r_bmanajementugas.app-debug-80:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "id.ac.unpas.r_bmanajementugas.app-main-82:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "id.ac.unpas.r_bmanajementugas.app-debug-80:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "id.ac.unpas.r_bmanajementugas.app-main-82:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "id.ac.unpas.r_bmanajementugas.app-debug-80:/xml_data_extraction_rules.xml.flat",
+        "source": "id.ac.unpas.r_bmanajementugas.app-main-82:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "id.ac.unpas.r_bmanajementugas.app-debug-80:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "id.ac.unpas.r_bmanajementugas.app-main-82:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "id.ac.unpas.r_bmanajementugas.app-debug-80:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "id.ac.unpas.r_bmanajementugas.app-main-82:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "id.ac.unpas.r_bmanajementugas.app-debug-80:/layout_fragment_tambah_tugas.xml.flat",
+        "source": "id.ac.unpas.r_bmanajementugas.app-main-82:/layout/fragment_tambah_tugas.xml"
+    },
+    {
+        "merged": "id.ac.unpas.r_bmanajementugas.app-debug-80:/layout_activity_dashboard.xml.flat",
+        "source": "id.ac.unpas.r_bmanajementugas.app-main-82:/layout/activity_dashboard.xml"
+    },
+    {
+        "merged": "id.ac.unpas.r_bmanajementugas.app-debug-80:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "id.ac.unpas.r_bmanajementugas.app-main-82:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "id.ac.unpas.r_bmanajementugas.app-debug-80:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "id.ac.unpas.r_bmanajementugas.app-main-82:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "id.ac.unpas.r_bmanajementugas.app-debug-80:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "id.ac.unpas.r_bmanajementugas.app-main-82:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "id.ac.unpas.r_bmanajementugas.app-debug-80:/drawable_ic_add.xml.flat",
+        "source": "id.ac.unpas.r_bmanajementugas.app-main-82:/drawable/ic_add.xml"
+    },
+    {
+        "merged": "id.ac.unpas.r_bmanajementugas.app-debug-80:/xml_backup_rules.xml.flat",
+        "source": "id.ac.unpas.r_bmanajementugas.app-main-82:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "id.ac.unpas.r_bmanajementugas.app-debug-80:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "id.ac.unpas.r_bmanajementugas.app-main-82:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "id.ac.unpas.r_bmanajementugas.app-debug-80:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "id.ac.unpas.r_bmanajementugas.app-main-82:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "id.ac.unpas.r_bmanajementugas.app-debug-80:/layout_item_tugas.xml.flat",
+        "source": "id.ac.unpas.r_bmanajementugas.app-main-82:/layout/item_tugas.xml"
+    },
+    {
+        "merged": "id.ac.unpas.r_bmanajementugas.app-debug-80:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "id.ac.unpas.r_bmanajementugas.app-main-82:/mipmap-xxhdpi/ic_launcher_round.webp"
+    }
+]
