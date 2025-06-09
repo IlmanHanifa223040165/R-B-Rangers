@@ -50,6 +50,7 @@
             android:layout_height="24dp"
             android:layout_gravity="center_vertical"
             android:src="@drawable/ic_delete"
+            android:contentDescription="Hapus Tugas"
             app:tint="@android:color/darker_gray" />
 
     </LinearLayout>
