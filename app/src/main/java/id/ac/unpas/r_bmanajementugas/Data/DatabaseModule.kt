@@ -9,7 +9,6 @@ import dagger.hilt.components.SingletonComponent
 import id.ac.unpas.r_bmanajementugas.persistences.AppDatabase
 import id.ac.unpas.r_bmanajementugas.persistences.TugasDao
 import javax.inject.Singleton
-import id.ac.unpas.r_bmanajementugas.persistences.UserDao
 import id.ac.unpas.r_bmanajementugas.persistences.KategoriTugasDao
 import dagger.hilt.android.qualifiers.ApplicationContext
 
@@ -35,10 +34,7 @@ object DatabaseModule {
         return appDatabase.tugasDao()
     }
 
-    @Provides
-    fun provideUserDao(appDatabase: AppDatabase): UserDao {
-        return appDatabase.userDao()
-    }
+
 
     @Provides
     fun provideKategoriTugasDao(appDatabase: AppDatabase): KategoriTugasDao {

@@ -6,40 +6,28 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 
 @Composable
-fun LoginScreen(
-    navController: NavController,
-    loginViewModel: LoginViewModel = viewModel()
-) {
-    val email by remember { derivedStateOf { loginViewModel.email } }
-    val password by remember { derivedStateOf { loginViewModel.password } }
-    val errorMessage = loginViewModel.errorMessage
-    val isLoggedIn = loginViewModel.isLoggedIn
+fun LoginScreen(navController: NavController, loginViewModel: LoginViewModel = hiltViewModel()) {
+    val isLoggedIn by remember { loginViewModel::isLoggedIn }
 
-    if (isLoggedIn) {
-        // Navigasi ke halaman utama (nanti diganti route-nya)
-        LaunchedEffect(Unit) {
-            navController.navigate("home") {
-                popUpTo("login") { inclusive = true }
+    // Cek login
+    LaunchedEffect(isLoggedIn) {
+        if (isLoggedIn) {
+            navController.navigate("dashboard") {
+                popUpTo("login") { inclusive = true } // Hapus login dari backstack
             }
         }
     }
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(32.dp),
-        verticalArrangement = Arrangement.Center
-    ) {
-        Text(text = "Login", style = MaterialTheme.typography.headlineMedium)
-        Spacer(modifier = Modifier.height(16.dp))
-
+    // Tampilan form login
+    Column(modifier = Modifier.padding(16.dp)) {
         OutlinedTextField(
-            value = email,
-            onValueChange = loginViewModel::onEmailChange,
+            value = loginViewModel.email,
+            onValueChange = { loginViewModel.onEmailChange(it) },
             label = { Text("Email") },
             modifier = Modifier.fillMaxWidth()
         )
@@ -47,11 +35,10 @@ fun LoginScreen(
         Spacer(modifier = Modifier.height(8.dp))
 
         OutlinedTextField(
-            value = password,
-            onValueChange = loginViewModel::onPasswordChange,
+            value = loginViewModel.password,
+            onValueChange = { loginViewModel.onPasswordChange(it) },
             label = { Text("Password") },
-            modifier = Modifier.fillMaxWidth(),
-            visualTransformation = PasswordVisualTransformation()
+            modifier = Modifier.fillMaxWidth()
         )
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -63,12 +50,9 @@ fun LoginScreen(
             Text("Login")
         }
 
-        if (errorMessage != null) {
+        loginViewModel.errorMessage?.let {
             Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                text = errorMessage,
-                color = MaterialTheme.colorScheme.error
-            )
+            Text(text = it, color = MaterialTheme.colorScheme.error)
         }
     }
 }

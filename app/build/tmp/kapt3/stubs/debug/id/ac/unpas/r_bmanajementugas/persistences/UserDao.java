@@ -4,7 +4,7 @@ package id.ac.unpas.r_bmanajementugas.persistences;
 @androidx.room.Dao()
 public abstract interface UserDao {
     
-    @androidx.room.Query(value = "SELECT * FROM users ORDER BY id DESC")
+    @androidx.room.Query(value = "SELECT * FROM User ORDER BY id DESC")
     @org.jetbrains.annotations.NotNull()
     public abstract kotlinx.coroutines.flow.Flow<java.util.List<id.ac.unpas.r_bmanajementugas.model.User>> loadAll();
     
